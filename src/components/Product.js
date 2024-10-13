@@ -6,26 +6,26 @@ export default function Product(props) {
       <div className="col-5">
         <h2>
           {props.product.name}
-          <span class="badge text-bg-secondary">₹{props.product.price}</span>
+          <span className="badge text-bg-secondary">₹{props.product.price}</span>
         </h2>
       </div>
-      <div classNmae="col=3">
+      <div className="col-3"> {/* Fixed typo here */}
         <div
-          class="btn-group"
+          className="btn-group" // Fixed typo here
           role="group"
           aria-label="Basic mixed styles example"
         >
-          <button type="button" class="btn btn-danger">
+          <button type="button" className="btn btn-danger">
             -
           </button>
-          <button type="button" class="btn btn-warning">
+          <button type="button" className="btn btn-warning">
             {props.product.quantity}
           </button>
           <button
             type="button"
-            class="btn btn-success"
+            className="btn btn-success"
             onClick={() => {
-              props.incrementQuantity(props.index);
+              props.incrementQuantity(props.index); // Ensure index is passed correctly
             }}
           >
             +
@@ -36,5 +36,5 @@ export default function Product(props) {
         {props.product.quantity * props.product.price}
       </div>
     </div>
-  )
+  );
 }
