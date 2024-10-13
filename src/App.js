@@ -22,17 +22,27 @@ function App() {
 
   let [productList , setProductList] = useState(products);
 
+
   const incrementQuantity = (index) => {
     let newProductList = [...productList];
     newProductList[index].quantity++;
     setProductList(newProductList);
   };
+  const decrementQuantity = (index) => {
+    let newProductList = [...productList];
+    if (newProductList[index].quantity > 0) {
+        newProductList[index].quantity = 0;
+    }
+    setProductList(newProductList);
+  };
+
+
   return (
     <>
       <Navbar />
       <main className='container mt-5'>
       <ProductList productList={productList}
-      incrementQuantity={incrementQuantity}/>
+      incrementQuantity={incrementQuantity} decrementQuantity={decrementQuantity}/>
       </main>
       {/* <Footer/> */}
 
