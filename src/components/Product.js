@@ -2,16 +2,16 @@ import React from "react";
 
 export default function Product(props) {
   return (
-    <div className="row">
+    <div className="row mt-3">
       <div className="col-5">
         <h2>
           {props.product.name}
-          <span className="badge text-bg-secondary">₹{props.product.price}</span>
+          <span className="badge bg-secondary">₹{props.product.price}</span>
         </h2>
       </div>
-      <div className="col-3"> {/* Fixed typo here */}
+      <div className="col-3">
         <div
-          className="btn-group" // Fixed typo here
+          class="btn-group"
           role="group"
           aria-label="Basic mixed styles example"
         >
@@ -21,17 +21,17 @@ export default function Product(props) {
             onClick={() => {
               props.decrementQuantity(props.index);
             }}
-        >
+          >
             -
           </button>
-          <button type="button" className="btn btn-warning">
+          <button type="button" class="btn btn-warning">
             {props.product.quantity}
           </button>
           <button
             type="button"
-            className="btn btn-success"
+            class="btn btn-success"
             onClick={() => {
-              props.incrementQuantity(props.index); // Ensure index is passed correctly
+              props.incrementQuantity(props.index);
             }}
           >
             +
@@ -41,6 +41,14 @@ export default function Product(props) {
       <div className="col-2">
         {props.product.quantity * props.product.price}
       </div>
+      <button
+        className="col-2 btn btn-danger"
+        onClick={() => {
+          props.removeItem(props.index);
+        }}
+      >
+        Remove
+      </button>
     </div>
   );
 }
